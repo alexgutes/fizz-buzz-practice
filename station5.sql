@@ -64,3 +64,13 @@ FROM STUDENTS
 WHERE MARKS > 75
 ORDER BY
   (SELECT RIGHT(NAME, 3)) ASC, ID ASC
+
+/*
+Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+https://www.hackerrank.com/challenges/asian-population/problem
+*/
+SELECT SUM(CITY.POPULATION)
+FROM CITY,
+     COUNTRY
+WHERE CITY.COUNTRYCODE = COUNTRY.CODE
+  AND COUNTRY.CONTINENT = 'Asia';
